@@ -2,16 +2,19 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from img2vec import Img2Vec
 import os
+from dotenv import load_dotenv
 
 class DatabaseClient:
     def __init__(self):
         # Create a new client and connect to the server
-        self.client = MongoClient(os.environ['MONGO_DB_URI'], server_api=ServerApi('1'))  
+        load_dotenv()
+        self.client = MongoClient(os.getenv("MONGO_DB_URI"), server_api=ServerApi('1'))  
         try:
           self.client.admin.command('ping')
           print("Pinged your deployment. You successfully connected to MongoDB!")
         except Exception as e:
-            raise e
+           print("Error")
+            # raise e
         
         # Access collection
         self.collection = self.client.SustainableClothing.data
