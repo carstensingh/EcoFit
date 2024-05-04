@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { useEffect } from 'react' 
 import "../../index.css"
 
+// using svg text animation generator from https://akashraj9828.github.io/svg-text-animation-generator/
 function setTextAnimation(delay, duration, strokeWidth, timingFunction, strokeColor, repeat) {
     let paths = document.querySelectorAll("path")
     let mode = repeat ? 'infinite' : 'forwards'

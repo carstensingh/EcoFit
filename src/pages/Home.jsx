@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 import "../index.css"
 
+import ImageInput from './components/ImageInput'
 import Animation from './components/Animation'
+import DisplayClothes from './components/DisplayClothes'
 import NavBar from './components/NavBar'
+import Content from './components/Content';
 
 const Home = () => {
     const [isImageInputted, setIsImageInputted] = useState(false)
     const [showTool, setShowTool] = useState(false)
-    const location = useLocation()
+    const location = useLocation();
     const isRoot = location.pathname === '/'
 
     // Check if image is inputted
@@ -25,7 +28,7 @@ const Home = () => {
         }, 3000);  
 
 
-        return () => clearTimeout(timer)
+        return () => clearTimeout(timer);
     }, [])
 
     return (
@@ -33,6 +36,8 @@ const Home = () => {
         
         {isRoot && < Animation />}
         <NavBar />
+        <Content />
+        
 
       </>
     );

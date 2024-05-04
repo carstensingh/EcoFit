@@ -17,18 +17,18 @@ const NavBar = () => {
                     <img src={ecoFitLogo} alt="EcoFit" style={{ position: 'absolute', top: '-22%', left: '50.85%', transform: 'translateX(-50%) scale(0.85)', zIndex: 6}} />
                 </div>
             )}
-            <div style={{ position: 'relative' }}> {/* Parent container with relative positioning */}
+            <div style={{ position: 'relative', left: '8vw'}}> {/* Parent container with relative positioning */}
                 <Link to="/home">
-                    <button className={buttonClass} style={{ position: 'absolute', left: '20vw' }}>Home</button>
-                </Link>
-                <Link to="/criteria">
-                    <button className={buttonClass} style={{ position: 'absolute', left: '10vw' }}>Criteria</button>
+                    <button className={buttonClass} style={{  marginRight: '1vw'}}>Home</button>
                 </Link>
                 <Link to="/tool">
-                    <button className={buttonClass} style={{ position: 'absolute', left: '43vw' }}>Tools</button>
+                    <button className={buttonClass} style={{  marginRight: '10vw'}}>Tool</button>
+                </Link>
+                <Link to="/criteria">
+                    <button className={buttonClass} style={{  marginRight: '1vw'}}>Criteria</button>
                 </Link>
                 <Link to="/about">
-                    <button className={buttonClass} style={{ position: 'absolute', left: '53vw' }}>About Us</button>
+                    <button className={buttonClass} >About Us</button>
                 </Link>
             </div>
         </div>
