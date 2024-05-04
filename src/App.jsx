@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
-
+import Criteria from './pages/Criteria'
 
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
           <Routes>
             <Route index element = {<Home />} />
             <Route path= "/home" element={<Home />} />
-            {/* <Route path= "/criteria" element={<Criteria />} /> */}
+            <Route path= "/criteria" element={<Criteria />} />
             {/* <Route path = "/tool" element={<Tool />} /> */}
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 import "../index.css"
 
 import Animation from './components/Animation'
@@ -9,23 +9,23 @@ import NavBar from './components/NavBar'
 const Home = () => {
     const [isImageInputted, setIsImageInputted] = useState(false)
     const [showTool, setShowTool] = useState(false)
-    const location = useLocation();
-    const isRoot = location.pathname === '/';
+    const location = useLocation()
+    const isRoot = location.pathname === '/'
 
     // Check if image is inputted
     const handleImageInput = () => {
-        setIsImageInputted(true);
+        setIsImageInputted(true)
         console.log("Image is Inputted")
     };
 
     useEffect(() => {
         // Set a timer to change showTool state after 3 seconds
         const timer = setTimeout(() => {
-            setShowTool(true);
+            setShowTool(true)
         }, 3000);  
 
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timer)
     }, [])
 
     return (
