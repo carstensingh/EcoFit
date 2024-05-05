@@ -3,7 +3,9 @@ from databaseClient import DatabaseClient
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/get_sustainable_alternatives": {"origins": "http://localhost:5173"}})
+
 dbClient = DatabaseClient()
 
 @app.route("/get_sustainable_alternatives", methods=["POST"])
@@ -19,10 +21,9 @@ def get_sustainable_alternatives():
     result_dict["company_name"] = r["company_name"]
     result_dict["image_data"] = r["imageBase64"]
     result_arr.append(result_dict)
-  response = jsonify(result_arr)
-  response.headers.add('Access-Control-Allow-Origin', '*')
+    
+  return jsonify(result_arr)
 
-  return response
 
 if __name__ == "__main__":
   app.run(debug=True)
