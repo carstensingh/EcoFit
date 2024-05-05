@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from databaseClient import DatabaseClient
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 dbClient = DatabaseClient()
 
 @app.route("/get_sustainable_alternatives", methods=["POST"])
