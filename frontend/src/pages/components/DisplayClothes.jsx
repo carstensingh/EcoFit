@@ -7,7 +7,7 @@ import "./display.css"
 
 function ClothingCard({ cloth, index, badges, companyNames, itemLink }) {
   return (
-    <Link to={itemLink} style={{ textDecoration: 'none' }}> {/* Wraps the entire card */}
+    <Link target="_blank" rel='noreferrer' to={itemLink} style={{ textDecoration: 'none' }}> {/* Wraps the entire card */}
       <div style={{width: '300px', height: '600px', paddingRight: '40px'}} 
           className="bg-white rounded-lg flex flex-col text-center hover:border hover:rounded-none transition-all">
           <img src={cloth} alt={`Cloth ${index}`} 

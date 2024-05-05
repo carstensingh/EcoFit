@@ -44,8 +44,8 @@ class DatabaseClient:
               "$vectorSearch": {
                 "queryVector": image_embedding,
                 "path": "image_embedding",
-                "numCandidates": 200,
-                "limit": 8,
+                "numCandidates": 600,
+                "limit": 7,
                 "index": "vector_index",
               }
           }
