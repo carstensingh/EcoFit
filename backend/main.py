@@ -11,7 +11,8 @@ dbClient = DatabaseClient()
 def get_sustainable_alternatives():
   data = request.get_json()
   base64_image = data["base64image"]
-  results = dbClient.query_image(base64_image)
+  base64_image_clean = base64_image.split(',', 1)[1]
+  results = dbClient.query_image(base64_image_clean)
 
   result_arr = []
   for r in results:
