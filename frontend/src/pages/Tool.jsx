@@ -17,10 +17,10 @@ const Tool = () => {
 
     
     return (
-        <>
+        <div className="pb-8">
             <NavBar />
             <ImageInput onImageInput={handleImageInput}/>
-        </>
+        </div>
       );
 }
 

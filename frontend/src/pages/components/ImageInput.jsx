@@ -5,6 +5,7 @@ function ImageInput() {
   const [image, setImage] = useState(null);
   const [responseData, setResponseData] = useState(null);
   const [uploadOption, setUploadOption] = useState('pc');
+  const [showCaptureButton, setShowCaptureButton] = useState(false); // State to track whether to show the Capture button
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
@@ -49,8 +50,10 @@ function ImageInput() {
     setImage(null);  // Clear previous image
     setUploadOption(option);
     if (option === 'pc') {
+      setShowCaptureButton(false); // Hide Capture button when switching to PC upload
       inputRef.current.click();
     } else if (option === 'camera') {
+      setShowCaptureButton(true); // Show Capture button when switching to camera upload
       if (videoRef.current.srcObject) {
         videoRef.current.srcObject.getTracks().forEach(track => track.stop());
       }
@@ -87,18 +90,23 @@ function ImageInput() {
     <div>
       <div className="relative flex justify-center my-20">
         <div className="left-0 flex flex-col gap-2 p-4 bg-gray rounded-tl-lg">
-          <button className={`bg-gray-200 p-2 rounded-full ${uploadOption === 'pc' ? 'bg-blue-500 text-white' : 'text-gray-600'}`}
+          <button className={`bg-gray-200 p-2 rounded-full self-center 
+          ${uploadOption === 'pc' ? 'bg-blue-500 text-white' : 'text-gray-600'}`}
             onClick={() => handleUploadOptionChange('pc')}>
             <img src="./src/assets/FiUpload.webp" className="max-w-6 max-h-6"></img>
           </button>
-          <button className={`bg-gray-200 p-2 rounded-full ${uploadOption === 'camera' ? 'bg-blue-500 text-white' : 'text-gray-600'}`}
+          <button className={`bg-gray-200 p-2 rounded-full self-center
+          ${uploadOption === 'camera' ? 'bg-blue-500 text-white' : 'text-gray-600'}`}
             onClick={() => handleUploadOptionChange('camera')}>
             <img src="./src/assets/FiCamera.png" className="max-w-6 max-h-6"></img>
           </button>
-          <button className="bg-blue-500 text-white p-2 rounded-full"
-            onClick={handleCapture} disabled={!videoRef.current}>
-            Capture
-          </button>
+          {/* Show Capture button only if camera option is selected */}
+          {uploadOption === 'camera' && (
+            <button className="bg-blue-500 text-white p-2 rounded-full"
+              onClick={handleCapture} disabled={!videoRef.current}>
+              Capture
+            </button>
+          )}
         </div>
         <div className="w-96 h-72 border border-gray-500 bg-gray-200 rounded-lg overflow-hidden flex justify-center">
           {image ? (
@@ -109,7 +117,7 @@ function ImageInput() {
                 Click to upload image
               </label>
               <input ref={inputRef} id="imageInput" type="file" accept="image/*" className="sr-only" onChange={handleImageChange} />
-              <video ref={videoRef} className="absolute inset-0 w-half h-full object-cover" style={{ display: 'none', left:"41%" }} autoPlay />
+              <video ref={videoRef} className="absolute inset-0 w-half h-full object-cover" style={{ display: 'none', left:"40.35%" }} autoPlay />
             </div>
           )}
         </div>
