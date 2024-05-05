@@ -11,20 +11,17 @@ import Content from './components/Content';
 
 const Home = () => {
     const [isImageInputted, setIsImageInputted] = useState(false)
-    const [showTool, setShowTool] = useState(false)
     const location = useLocation();
     const isRoot = location.pathname === '/'
 
-    // Check if image is inputted
-    const handleImageInput = () => {
-        setIsImageInputted(true)
-        console.log("Image is Inputted")
-    };
+    const [showContent, setShowContent] = useState(false);
+
 
     useEffect(() => {
         // Set a timer to change showTool state after 3 seconds
         const timer = setTimeout(() => {
-            setShowTool(true)
+            setShowContent(true)
+          
         }, 3000);  
 
 
@@ -34,10 +31,20 @@ const Home = () => {
     return (
       <>
         
-        {isRoot && < Animation />}
-        <NavBar />
-        <Content />
-        
+        {isRoot && (
+        <>
+          <Animation />
+          {showContent && <NavBar />}
+          {showContent && <Content />}
+        </>
+        )}
+
+        {!isRoot && (
+          <>
+            <NavBar  />
+            <Content />
+          </>
+        )}
 
       </>
     );

@@ -45,7 +45,7 @@ class DatabaseClient:
                 "queryVector": image_embedding,
                 "path": "image_embedding",
                 "numCandidates": 200,
-                "limit": 4,
+                "limit": 8,
                 "index": "vector_index",
               }
           }
