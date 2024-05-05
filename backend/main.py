@@ -3,8 +3,7 @@ from databaseClient import DatabaseClient
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/get_sustainable_alternatives": {"origins": "http://localhost:5173"}})
+CORS(app)
 
 dbClient = DatabaseClient()
 
