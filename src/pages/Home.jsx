@@ -41,7 +41,7 @@ const Home = () => {
 
         {!isRoot && (
           <>
-            <NavBar />
+            <NavBar  />
             <Content />
           </>
         )}

@@ -27,7 +27,7 @@ const NavBar = () => {
                 <Link to="/criteria">
                     <button className={buttonClass} style={{  marginRight: '1vw'}}>Criteria</button>
                 </Link>
-                <Link to="/about">
+                <Link to="/about-us">
                     <button className={buttonClass} >About Us</button>
                 </Link>
             </div>

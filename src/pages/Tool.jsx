@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import "../index.css"
-
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import NavBar from './components/NavBar'
 import ImageInput from './components/ImageInput'
 import DisplayClothes from './components/DisplayClothes'
-import NavBar from './components/NavBar'
 
 
 const Tool = () => {
@@ -19,13 +19,9 @@ const Tool = () => {
     
     return (
         <>
-        <NavBar/>
-        {/* <div className='Tool'>
-            <div style={{ height: '50px'}}></div>
-            <ImageInput onImageInput={handleImageInput} />
-            <DisplayClothes />
-        </div> */}
-
+            <NavBar />
+            <ImageInput onImageInput={handleImageInput}/>
+            <h1> {isImageInputted && <DisplayClothes/>} </h1>
         </>
       );
 }
