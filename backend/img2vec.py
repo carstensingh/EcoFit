@@ -48,6 +48,7 @@ class Img2Vec:
 
     # Open the image file and resize the image to 224x224
     input_image = Image.open(image_stream)
+    input_image = input_image.convert("RGB")
     resized_image = input_image.resize((224, 224))
 
     # Enhance the contrast of the image and then convert the image to a numpy array
