@@ -19,8 +19,10 @@ def get_sustainable_alternatives():
     result_dict["company_name"] = r["company_name"]
     result_dict["image_data"] = r["imageBase64"]
     result_arr.append(result_dict)
+  response = jsonify(result_arr)
+  response.headers.add('Access-Control-Allow-Origin', '*')
 
-  return jsonify(result_arr), 200
+  return response
 
 if __name__ == "__main__":
   app.run(debug=True)
